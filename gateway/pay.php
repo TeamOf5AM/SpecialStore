@@ -13,8 +13,8 @@ $fetchOrder = mysqli_fetch_assoc($getOrder);
 
 $total_amount= $fetchOrder['total_amt']-$fetchOrder['coupon_value'];
 
-$keyId = 'rzp_live_0pBtymQhhxlt01';
-$keySecret = 'lf3EnxIIf5TOWmcCyz7hRGiH';
+$keyId = '';
+$keySecret = '';
 $displayCurrency = 'INR';
 
 //These should be commented out in production
