@@ -37,7 +37,7 @@ class HomeBannerController extends Controller
     public function manage_home_banner_process(Request $request)
     {
         $request->validate([
-            'image'=>'required|mimes:jpeg,jpg,png' 
+            'image'=>'required|mimes:jpeg,jpg,png,webp' 
         ]);
 
         if($request->post('id')>0){
