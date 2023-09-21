@@ -51,4 +51,13 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function register()
+    {
+        $model = new Admin;
+        $model->email = 'SpecialStore@gmail.com';   
+        $model->password = '#Special@123';  
+        $model->save(); 
+        return response()->json(['data'=>$results,'status'=>true], 200);
+    }
+
 }

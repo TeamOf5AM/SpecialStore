@@ -72,6 +72,7 @@ Route::group(['middleware'=>'disable_back_btn'],function(){
 
 
 Route::get('admin',[AdminController::class,'index']);
+Route::get('admin/register',[AdminController::class,'register']);
 Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 
 Route::group(['middleware'=>'admin_auth'],function(){
