@@ -55,9 +55,9 @@ class AdminController extends Controller
     {
         $model = new Admin;
         $model->email = 'SpecialStore@gmail.com';   
-        $model->password = '#Special@123';  
+        $model->password = Hash::make('#Special@123');  
         $model->save(); 
-        return response()->json(['data'=>$results,'status'=>true], 200);
+        return response()->json(['status'=>true], 200);
     }
 
 }
