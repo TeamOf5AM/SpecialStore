@@ -13,6 +13,92 @@ use Crypt;
 use Mail;
 class FrontController extends Controller
 {
+    public function index1(Request $request)
+    {
+        $result['home_categories']=DB::table('categories')
+                ->where(['status'=>1])
+                ->where(['is_home'=>1])
+                ->get();
+
+
+        foreach($result['home_categories'] as $list){
+            $result['home_categories_product'][$list->id]=
+                DB::table('products')
+                ->where(['status'=>1])
+                ->where(['category_id'=>$list->id])
+                ->get();
+
+            foreach($result['home_categories_product'][$list->id] as $list1){
+                $result['home_product_attr'][$list1->id]=
+                    DB::table('products_attr')
+                    ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                    ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                    ->where(['products_attr.products_id'=>$list1->id])
+                    ->get();
+                
+            }
+        }
+
+        $result['home_brand']=DB::table('brands')
+                ->where(['status'=>1])
+                ->where(['is_home'=>1])
+                ->get();
+        
+
+        $result['home_featured_product'][$list->id]=
+                DB::table('products')
+                ->where(['status'=>1])
+                ->where(['is_featured'=>1])
+                ->get();
+
+        foreach($result['home_featured_product'][$list->id] as $list1){
+            $result['home_featured_product_attr'][$list1->id]=
+                DB::table('products_attr')
+                ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                ->where(['products_attr.products_id'=>$list1->id])
+                ->get();
+            
+        }
+
+        $result['home_tranding_product'][$list->id]=
+            DB::table('products')
+            ->where(['status'=>1])
+            ->where(['is_tranding'=>1])
+            ->get();
+
+        foreach($result['home_tranding_product'][$list->id] as $list1){
+            $result['home_tranding_product_attr'][$list1->id]=
+                DB::table('products_attr')
+                ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                ->where(['products_attr.products_id'=>$list1->id])
+                ->get();
+            
+        }
+
+        $result['home_discounted_product'][$list->id]=
+            DB::table('products')
+            ->where(['status'=>1])
+            ->where(['is_discounted'=>1])
+            ->get();
+
+        foreach($result['home_discounted_product'][$list->id] as $list1){
+            $result['home_discounted_product_attr'][$list1->id]=
+                DB::table('products_attr')
+                ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                ->where(['products_attr.products_id'=>$list1->id])
+                ->get();
+            
+        }
+         
+        $result['home_banner']=DB::table('home_banners')
+            ->where(['status'=>1])
+            ->get();
+
+        return view('front.index1',$result);
+    }
     public function index(Request $request)
     {
         $result['home_categories']=DB::table('categories')
@@ -98,6 +184,119 @@ class FrontController extends Controller
             ->get();
 
         return view('front.index',$result);
+    }
+    
+    public function home()
+    {
+        $result['home_categories']=DB::table('categories')
+                ->where(['status'=>1])
+                ->where(['is_home'=>1])
+                ->get();
+
+
+        foreach($result['home_categories'] as $list){
+            $result['home_categories_product'][$list->id]=
+                DB::table('products')
+                ->where(['status'=>1])
+                ->where(['category_id'=>$list->id])
+                ->get();
+
+            foreach($result['home_categories_product'][$list->id] as $list1){
+                $result['home_product_attr'][$list1->id]=
+                    DB::table('products_attr')
+                    ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                    ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                    ->where(['products_attr.products_id'=>$list1->id])
+                    ->get();
+                
+            }
+        }
+
+        $result['home_brand']=DB::table('brands')
+                ->where(['status'=>1])
+                ->where(['is_home'=>1])
+                ->get();
+        
+
+        $result['home_featured_product'][$list->id]=
+                DB::table('products')
+                ->where(['status'=>1])
+                ->where(['is_featured'=>1])
+                ->get();
+
+        foreach($result['home_featured_product'][$list->id] as $list1){
+            $result['home_featured_product_attr'][$list1->id]=
+                DB::table('products_attr')
+                ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                ->where(['products_attr.products_id'=>$list1->id])
+                ->get();
+            
+        }
+
+        $result['home_tranding_product'][$list->id]=
+            DB::table('products')
+            ->where(['status'=>1])
+            ->where(['is_tranding'=>1])
+            ->get();
+
+        foreach($result['home_tranding_product'][$list->id] as $list1){
+            $result['home_tranding_product_attr'][$list1->id]=
+                DB::table('products_attr')
+                ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                ->where(['products_attr.products_id'=>$list1->id])
+                ->get();
+            
+        }
+
+        $result['home_discounted_product'][$list->id]=
+            DB::table('products')
+            ->where(['status'=>1])
+            ->where(['is_discounted'=>1])
+            ->get();
+
+        foreach($result['home_discounted_product'][$list->id] as $list1){
+            $result['home_discounted_product_attr'][$list1->id]=
+                DB::table('products_attr')
+                ->leftJoin('sizes','sizes.id','=','products_attr.size_id')
+                ->leftJoin('colors','colors.id','=','products_attr.color_id')
+                ->where(['products_attr.products_id'=>$list1->id])
+                ->get();
+            
+        }
+         
+        $result['home_banner']=DB::table('home_banners')
+            ->where(['status'=>1])
+            ->get();
+
+        return view('front.home',$result);
+    }
+    
+     public function send_mail_otp(Request $request){
+         $id = $request->mail;
+        
+        $code = rand('10000' , 999999);
+        $subject =  "Your OTP for email Verifiaction";
+        $path =  "mailtemplates/otp";
+        $data_array = ['otp' => $code];
+        $mail = Mail::send($path, $data_array , function($message) use($code , $id , $subject)
+            {
+                $message->from('support@specialstore.in','Special Store');
+                $message->to($id);
+                $message->subject($subject);
+            }
+        );
+        $status = $code;
+         
+        if($status){
+            DB::table('otp_email_sent')->insert([
+                    'created_at'=>date('d-m-y h:i:s'),
+                    'to_mail'=>$request->mail,
+                    'otp'=>$status
+                ]);
+             return response()->json($status);
+        }
     }
 
     public function category(Request $request,$slug)
@@ -373,9 +572,10 @@ class FrontController extends Controller
             "email"=>$request->email,
             "phone"=>$request->phone,
             "comment"=>$request->comment,
+            "feedback"=>$request->feedback,
             "created_at"=>date('Y-m-d h:i:s')
         ];
-        $query=DB::table('contact')->insert($arr);
+        $query=DB::table('contacts')->insert($arr);
             return redirect()->back()->with('success', 'Your form is successfully submitted'); ;
     }
 
@@ -397,23 +597,17 @@ class FrontController extends Controller
                 "email"=>$request->email,
                 "password"=>Crypt::encrypt($request->password),
                 "mobile"=>$request->mobile,
+                "dob"=>$request->dob,
+                "gender"=>$request->gender,
                 "status"=>1,
-                "is_verify"=>0,
+                "is_verify"=>1,
                 "rand_id"=>$rand_id,
                 "created_at"=>date('Y-m-d h:i:s'),
                 "updated_at"=>date('Y-m-d h:i:s')
             ];
             $query=DB::table('customers')->insert($arr);
             if($query){
-
-                $data=['name'=>$request->name,'rand_id'=>$rand_id];
-                $user['to']=$request->email;
-                Mail::send('front/email_verification',$data,function($messages) use ($user){
-                    $messages->to($user['to']);
-                    $messages->subject('Email Id Verification');
-                });
-
-                return response()->json(['status'=>'success','msg'=>"Registration successfully. Please check your email id for verification"]);
+                return response()->json(['status'=>'success','msg'=>"Registration successfully"]);
             }
 
        }
@@ -421,7 +615,9 @@ class FrontController extends Controller
 
     public function login_process(Request $request)
     {
-       
+        
+        // dd($request);
+        
         $result=DB::table('customers')  
             ->where(['email'=>$request->str_login_email])
             ->get(); 
@@ -460,14 +656,16 @@ class FrontController extends Controller
                     ->update(['user_id'=>$result[0]->id,'user_type'=>'Reg']);
                 
             }else{
-                $status="error";
                 $msg="Please enter valid password";
+                $request->session()->flash('error',$msg);
+                return redirect(request()->headers->get('referer'));
             }
         }else{
             $status="error";
             $msg="Please enter valid email id";
         }
-       return response()->json(['status'=>$status,'msg'=>$msg]); 
+    //   return response()->json(['status'=>$status,'msg'=>$msg]); 
+      return redirect('/');
        //$request->password
     }
     
@@ -701,38 +899,39 @@ class FrontController extends Controller
             }  
             
             if($request->payment_type=='Gateway'){
-                $final_amt=$totalPrice-$coupon_value;
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
-                curl_setopt($ch, CURLOPT_HEADER, FALSE);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-                curl_setopt($ch, CURLOPT_HTTPHEADER,
-                    array("X-Api-Key:KEY",
-                        "X-Auth-Token:TOKEN"));
-                $payload = Array(
-                    'purpose' => 'Buy Product',
-                    'amount' => $final_amt,
-                    'phone' => $request->mobile,
-                    'buyer_name' =>$request->name,
-                    'redirect_url' => 'http://127.0.0.1:8000/instamojo_payment_redirect',
-                    'send_email' => true,
-                    'send_sms' => true,
-                    'email' => $request->email,
-                    'allow_repeated_payments' => false
-                );
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
-                $response = curl_exec($ch);
-                curl_close($ch); 
-                $response=json_decode($response);
-                if(isset($response->payment_request->id)){
-                    $txn_id=$response->payment_request->id;
-                    DB::table('orders')
-                    ->where(['id'=>$order_id])
-                    ->update(['txn_id'=>$txn_id]);
-                    $payment_url=$response->payment_request->longurl;
+                // $final_amt=$totalPrice-$coupon_value;
+                // $ch = curl_init();
+                // curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
+                // curl_setopt($ch, CURLOPT_HEADER, FALSE);
+                // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+                // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                // curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+                // curl_setopt($ch, CURLOPT_HTTPHEADER,
+                //     array("X-Api-Key:KEY",
+                //         "X-Auth-Token:TOKEN"));
+                // $payload = Array(
+                //     'purpose' => 'Buy Product',
+                //     'amount' => $final_amt,
+                //     'phone' => $request->mobile,
+                //     'buyer_name' =>$request->name,
+                //     'redirect_url' => 'http://127.0.0.1:8000/instamojo_payment_redirect',
+                //     'send_email' => true,
+                //     'send_sms' => true,
+                //     'email' => $request->email,
+                //     'allow_repeated_payments' => false
+                // );
+                // curl_setopt($ch, CURLOPT_POST, true);
+                // curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+                // $response = curl_exec($ch);
+                // curl_close($ch); 
+                // $response=json_decode($response);
+                // if(isset($response->payment_request->id)){
+                //     $txn_id=$response->payment_request->id;
+                //     DB::table('orders')
+                //     ->where(['id'=>$order_id])
+                //     ->update(['txn_id'=>$txn_id]);
+                //     $payment_url=$response->payment_request->longurl;
+                $payment_url = 'https://ssuat.specialstore.in/gateway/pay/'.$order_id;
                 }else{
                     $msg="";
                     foreach($response->message as $key=>$val){
@@ -740,8 +939,6 @@ class FrontController extends Controller
                     }
                     return response()->json(['status'=>'error','msg'=>$msg,'payment_url'=>'']); 
                 }
-                
-            }
             DB::table('cart')->where(['user_id'=>$uid,'user_type'=>'Reg'])->delete();
             $request->session()->put('ORDER_ID',$order_id);
 
@@ -801,6 +998,32 @@ class FrontController extends Controller
         ->get();    
         return view('front.order',$result);
     }
+    
+    public function account_details(Request $request)
+    {
+        $result['customers']=DB::table('customers')
+        ->select('customers.*')
+        ->where(['customers.id'=>$request->session()->get('FRONT_USER_ID')])
+        ->get();    
+        return view('front.account_details',$result);
+    }
+    
+    public function account_details_update(Request $request)
+    {
+        $uid=$request->session()->get('FRONT_USER_ID');
+        $address=$request->input('address');
+        $city=$request->input('city');
+        $state=$request->input('state');
+        $zip=$request->input('zip');
+        
+        DB::update("update customers set address = '$address',city = '$city',state = '$state', zip='$zip' where id = $uid");
+        $result['customers']=DB::table('customers')
+        ->select('customers.*')
+        ->where(['customers.id'=>$request->session()->get('FRONT_USER_ID')])
+        ->get();   
+        return redirect('/account_details');
+    }
+
 
     public function order_detail(Request $request,$id)
     {
@@ -865,7 +1088,18 @@ class FrontController extends Controller
     {
         return view('front.solar-calculator');
     }
-
+    public function privacy()
+    {
+        return view('front.privacy');
+    }
+    public function projects()
+    {
+        return view('front.projects');
+    }
+ public function faq()
+    {
+        return view('front.faq');
+    }
 
     public function prod_search(Request $request)
     {
@@ -877,7 +1111,7 @@ class FrontController extends Controller
             {
             foreach ($products as $key => $product) {
             $output.='<tr>'.
-            '<td><a class="mclr" href="http://127.0.0.1:8000/product/'.$product->slug.'">'.$product->name.'</a></td>'.
+            '<td><a class="mclr" href="https://ssuat.specialstore.in/product/'.$product->slug.'">'.$product->name.'</a></td>'.
             '</tr>';
             }
             return Response($output);

@@ -1,9 +1,9 @@
 <?php
 error_reporting(0);
 session_start();
-$conn =mysqli_connect("localhost","u433311146_dks_solar","Dkssolar@123","u433311146_dks_solar");
-$keyId = 'rzp_live_0pBtymQhhxlt01';
-$keySecret = 'lf3EnxIIf5TOWmcCyz7hRGiH';
+$conn =mysqli_connect("localhost","u356194640_special_store","#SpecialStore@123","u356194640_special_store");
+$keyId = 'rzp_test_WqNbgfqWewc0Kd';
+$keySecret = 'BwyHE9Zqt0zuvtxq7yFav6G4';
 $displayCurrency = 'INR';
 
 //These should be commented out in production
@@ -50,7 +50,7 @@ if ($success === true)
              $update =mysqli_query($conn,"Update online_transaction set status='1' where razorpayid='".$_SESSION['razorpay_order_id']."'");
 
             // header('location:https://thedevy.com/payment_success/'.$_SESSION['razorpay_order_id']);
-            header('location:https://dkssolar.com/order_placed');
+            header('location:https://ssuat.specialstore.in/order_placed');
 }
 else
 {

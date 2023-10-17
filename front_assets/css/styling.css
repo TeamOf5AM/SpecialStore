@@ -1,0 +1,244 @@
+.bg-primary , .btn-primary {
+    background-color: #6465FB !important;
+    color: white !important;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.text-wrap{
+  text-align: justify !important;
+}
+.text-primary{
+    color: #6465FB !important;
+}
+.bg-success , .btn-success {
+    background-color: #32CD34 !important;
+    color: white;
+}
+.bg-darkgreen , .btn-darkgreen {
+    background-color: #006634 !important;
+    color: white;
+}
+.bg-lightgreen{
+    background-color: #0066351a;
+}
+.text-success{
+    color: #32CD34 !important;
+}
+.text-primary{
+    color: #6465FB !important;
+}
+.card{
+    background-color: transparent !important;
+    border: none;
+}
+.x-small{
+  font-size: 11px;
+}
+.slick-prev{
+    left: 1px !important;
+    color: white !important;
+    background-color: black !important;
+    border-radius: 50%;
+}
+.slick-next{
+    right: -1px !important;
+    color: white !important;
+    background-color: black !important;
+    border-radius: 50%;
+}
+.list-group-item{
+    background-color: transparent;
+    border: none;
+}
+.mclr{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.letter-spacing-sm{
+  letter-spacing: 1px;
+}
+.letter-spacing-md{
+  letter-spacing: 5px;
+}
+.letter-spacing-lg{
+  letter-spacing: 10px;
+}
+.nav-link.active{
+  background-color: transparent !important;
+  border: 3px solid #6465FB !important;
+}
+.nav-link.active:hover{
+  background-color:#6465FB !important;
+  color: #fff !important;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .fs-small{
+    font-size: 10px !important;
+  }
+  .fs-small-sm{
+    font-size: 0.8rem !important;
+  }
+  .fs-small-md{
+    font-size: 1rem !important;
+  }
+  .fs-small-heading1{
+    font-size: 1.4rem !important;
+  }
+  .fs-small-heading{
+    font-size: 1.5rem !important;
+  }
+  .border-lg-0{
+    border-bottom: 1px solid black !important;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Preloader*/
+@-webkit-keyframes loader-two-before-transition {
+    50% {
+      left: -154px;
+    }
+  
+    100% {
+      left: -97px;
+    }
+  }
+  
+  @keyframes loader-two-before-transition {
+    50% {
+      left: -154px;
+    }
+  
+    100% {
+      left: -97px;
+    }
+  }
+  
+  @-webkit-keyframes loader-two-after-transition {
+    50% {
+      left: 54px;
+    }
+  
+    100% {
+      left: -4px;
+    }
+  }
+  
+  @keyframes loader-two-after-transition {
+    50% {
+      left: 54px;
+    }
+  
+    100% {
+      left: -4px;
+    }
+  }
+
+#wpf-loader-two {
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+  }
+  
+  #wpf-loader-two .wpf-loader-two-inner {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 100px;
+    left: 46%;
+    position: absolute;
+    top: 40%;
+    width: 100px;
+    text-align: center;
+  }
+  
+  #wpf-loader-two .wpf-loader-two-inner:before {
+    content: "";
+    height: 57%;
+    left: -204px;
+    position: absolute;
+    top: -5px;
+    transition: all 0.5s ease 0s;
+    width: 200px;
+    -webkit-animation-name: loader-two-before-transition;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: loader-two-before-transition;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  #wpf-loader-two .wpf-loader-two-inner:after {
+    content: "";
+    height: 57%;
+    left: 104%;
+    position: absolute;
+    top: 50%;
+    transition: all 0.5s ease 0s;
+    width: 200px;
+    -webkit-animation-name: loader-two-after-transition;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: loader-two-after-transition;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  #wpf-loader-two .wpf-loader-two-inner span {
+    color: #fff;
+    display: inline-block;
+    margin-top: 42%;
+  }
+  .scrollToTop {
+    bottom: 60px;
+    color: #fff;
+    display: none;
+    font-size: 23px;
+    height: 50px;
+    line-height: 45px;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    width: 50px;
+    z-index: 999;
+  }
+  
+  .scrollToTop:hover,
+  .scrollToTop:focus {
+    background-color: #FFF;
+    text-decoration: none;
+    outline: none;
+  }
+  

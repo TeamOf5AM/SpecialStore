@@ -2,7 +2,7 @@
 error_reporting(0);
 
 
-$conn =mysqli_connect("localhost","u433311146_dks_solar","Dkssolar@123","u433311146_dks_solar");
+$conn =mysqli_connect("localhost","u356194640_special_store","#SpecialStore@123","u356194640_special_store");
 $str = $_SERVER['REQUEST_URI'];
 preg_match_all('!\d+!', $str, $matches);
 $orderid = $matches[0][0];
@@ -13,8 +13,8 @@ $fetchOrder = mysqli_fetch_assoc($getOrder);
 
 $total_amount= $fetchOrder['total_amt']-$fetchOrder['coupon_value'];
 
-$keyId = '';
-$keySecret = '';
+$keyId = 'rzp_test_WqNbgfqWewc0Kd';
+$keySecret = 'BwyHE9Zqt0zuvtxq7yFav6G4';
 $displayCurrency = 'INR';
 
 //These should be commented out in production
@@ -69,9 +69,9 @@ if (isset($_GET['checkout']) and in_array($_GET['checkout'], ['automatic', 'manu
 $data = [
     "key"               => $keyId,
     "amount"            => $amount,
-    "name"              => "DKS SOLAR",
+    "name"              => "Special Store",
     "description"       => "DKS SOLAR",
-    "image"             => "https://dkssolar.com/front_assets/img/Logo.jpeg",
+    "image"             => "https://ssuat.specialstore.in/front_assets/assests/images/logo.png",
     "prefill"           => [
     "name"              => $fetchOrder['name'],
     "email"             => $fetchOrder['email'],

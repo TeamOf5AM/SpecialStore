@@ -1,5 +1,5 @@
 
-<form action="https://dkssolar.com/gateway/verify.php" method="POST">
+<form action="https://ssuat.specialstore.in/gateway/verify.php" method="POST">
   <script
     src="https://checkout.razorpay.com/v1/checkout.js"
     data-key="<?php echo $data['key']?>"
