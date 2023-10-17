@@ -15,7 +15,7 @@
     <script src="{{asset('front_assets/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
     <!-- === Product Image Url Starts=== -->
     <script>
-      var PRODUCT_IMAGE="{{asset('storage/media/')}}";
+      var PRODUCT_IMAGE="{{asset('public/storage/media/')}}";
       </script>
     <!-- === Product Image Url End=== -->
   </head>

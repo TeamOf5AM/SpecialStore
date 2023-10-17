@@ -11,7 +11,7 @@
                 @foreach($home_categories as $list)
                 <div class="col-md-2 col-4 {{ $loop->last ? '':'border-end border-warning'}}">
                   <div class="card text-center align-items-center">
-                    <img class="pb-2" src="{{asset('storage/media/category/'.$list->category_image)}}" width="25" alt="">
+                    <img class="pb-2" src="{{asset('public/storage/media/category/'.$list->category_image)}}" width="25" alt="">
                     <p class="mb-0"><a href="{{url('category/'.$list->category_slug)}}">{{$list->category_name}}</a></p>
                   </div>
                 </div>
@@ -25,7 +25,7 @@
                 <a href="{{url('category/'.$list->category_slug)}}">
                   <div style="width: 130px;" class="px-0 border-end border-warning">
                     <div class="card text-center align-items-center">
-                      <img class="pb-1" src="{{asset('storage/media/category/'.$list->category_image)}}" width="25" alt="">
+                      <img class="pb-1" src="{{asset('public/storage/media/category/'.$list->category_image)}}" width="25" alt="">
                       <p class="mb-0 smaller">{{$list->category_name}}</p>
                     </div>
                   </div>
@@ -50,7 +50,7 @@
               <div class="carousel-inner">
                 @foreach($home_banner as $list)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                  <img class="rounded w-100" src="{{asset('storage/media/banner/'.$list->image)}}" class="d-block w-100" alt="...">
+                  <img class="rounded w-100" src="{{asset('public/storage/media/banner/'.$list->image)}}" class="d-block w-100" alt="...">
                   <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
