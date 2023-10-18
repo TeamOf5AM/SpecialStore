@@ -24,9 +24,28 @@
                                         </div>
 
                                        
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-2">
                                             <label for="category_slug" class="control-label mb-1">Btn Link</label>
                                             <input id="btn_link" value="{{$btn_link}}" name="btn_link" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="banner_type" class="control-label mb-1">Select Banner Type</label>
+                                            <select name="ban_type" class="form-control">
+                                                <option value="1">Slider</option>
+                                                <option value="2">Home Banner</option>
+                                                <option value="3">Category Banner</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="banner_type" class="control-label mb-1">Select Category</label>
+                                            <select name="cat_id" class="form-control">
+                                                @foreach($catarr as $list)
+                                                <option value="" default>Select Category</option>
+                                                <option value="{{$list->id}}">{{$list->label}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     

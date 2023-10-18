@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Admin\HomeBanner;
+use App\Models\Admin\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Storage;
@@ -11,7 +12,9 @@ class HomeBannerController extends Controller
 {
     public function index()
     {
-        $result['data']=HomeBanner::all();
+        $result['data']=HomeBanner::where('banner_type',1)->get();
+        $result['home_bn']=HomeBanner::where('banner_type',2)->get();
+        $result['cat_ban']=HomeBanner::where('banner_type',3)->get();
         return view('admin/home_banner',$result);
     }
 
@@ -19,16 +22,18 @@ class HomeBannerController extends Controller
     public function manage_home_banner(Request $request,$id='')
     {
         if($id>0){
-            $arr=HomeBanner::where(['id'=>$id])->get(); 
-            $result['image']=$arr['0']->image;
-            $result['btn_txt']=$arr['0']->btn_txt;
-            $result['btn_link']=$arr['0']->btn_link;
-            $result['id']=$arr['0']->id;
+            $arr=HomeBanner::where(['id'=>$id])->first(); 
+            $result['image']=$arr->image;
+            $result['btn_txt']=$arr->btn_txt;
+            $result['btn_link']=$arr->btn_link;
+            $result['id']=$arr->id;
+            $result['catarr']=Category::select('category_name as label','id')->where(['id'=>$arr->id])->get(); 
         }else{
             $result['image']='';
             $result['btn_txt']='';
             $result['btn_link']='';
             $result['id']="";
+            $result['catarr']=Category::select('category_name as label','id')->get();
         }
 
         return view('admin/manage_home_banner',$result);
@@ -64,6 +69,7 @@ class HomeBannerController extends Controller
             $model->image=$image_name;
 
         }
+        $model->banner_type=$request->post('ban_type');
         $model->btn_txt=$request->post('btn_txt');
         $model->btn_link=$request->post('btn_link');
         $model->status=1;
