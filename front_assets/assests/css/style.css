@@ -274,10 +274,14 @@ a:hover{
 }
 
 
-
-
+.w-lg-prd_crd{
+  width: 17rem;
+}
 
 @media only screen and (max-width: 600px) {
+  .w-lg-prd_crd{
+    width: 10rem;
+  }
   .h-27rem{
     height: 25rem;
   }

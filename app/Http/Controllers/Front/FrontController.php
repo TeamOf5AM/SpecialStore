@@ -179,9 +179,56 @@ class FrontController extends Controller
             
         }
          
-        $result['home_banner']=DB::table('home_banners')
-            ->where(['status'=>1])
+        $result['slider_banner']=DB::table('home_banners')
+            ->where(['status'=>1,'banner_type'=>1])
             ->get();
+
+
+        $result['home_banner_1']=DB::table('home_banners')
+            ->where(['status'=>1,'banner_type'=>2])
+            ->limit(2)
+            ->get();
+            
+
+        $result['home_banner_2']=DB::table('home_banners')
+            ->where(['status'=>1,'banner_type'=>2])
+            ->orderBy('id','desc')
+            ->first();
+            
+
+        $result['cat_banner_left_1']=DB::table('home_banners')
+            ->where(['status'=>1,'banner_type'=>3])
+            // ->limit(2)
+            ->get();
+
+        // die($result['cat_banner_left_1'][0]);
+
+        for ($i=0; $i < 2; $i++) { 
+            $result['cat_banner'][0]['title_name'] = "Birthday Gift";
+            $result['cat_banner'][1]['title_name'] = "Corporate Gift";
+            $array = [];
+            foreach($result['cat_banner_left_1'] as $key=>$data)
+            {
+                $result['cat_banner'][$i]['title_link'] = $data->btn_link;
+                if($key == 0)
+                {
+                    $result['cat_banner'][$i]['cat_arr_left'][0] = array('cat_name'=>$data->btn_txt,'image'=>$data->image);
+                }
+                if($key == 1)
+                {
+                    $result['cat_banner'][$i]['cat_arr_left'][1] = array('cat_name'=>$data->btn_txt,'image'=>$data->image);
+                }
+                if($key == 2)
+                {
+                    $result['cat_banner'][$i]['cat_arr_right'][2] = array('cat_name'=>$data->btn_txt,'image'=>$data->image);
+                }
+                if($key == 3)
+                {
+                    $result['cat_banner'][$i]['cat_arr_right'][3] = array('cat_name'=>$data->btn_txt,'image'=>$data->image);
+                }
+            }
+        }
+
 
         return view('front.index',$result);
     }

@@ -43,7 +43,11 @@
                                             <select name="cat_id" class="form-control">
                                                 @foreach($catarr as $list)
                                                 <option value="" default>Select Category</option>
+                                                @if($list->id == $cat_id)
+                                                <option value="{{$list->id}}" selected>{{$list->label}}</option>
+                                                @else
                                                 <option value="{{$list->id}}">{{$list->label}}</option>
+                                                @endif
                                                 @endforeach
                                             </select>
                                         </div>

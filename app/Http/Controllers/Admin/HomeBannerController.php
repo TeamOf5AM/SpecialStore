@@ -27,12 +27,15 @@ class HomeBannerController extends Controller
             $result['btn_txt']=$arr->btn_txt;
             $result['btn_link']=$arr->btn_link;
             $result['id']=$arr->id;
-            $result['catarr']=Category::select('category_name as label','id')->where(['id'=>$arr->id])->get(); 
+            $catarr=Category::select('category_name as label','id')->where(['id'=>$arr->cat_id])->first(); 
+            $result['cat_id']=$catarr['id'];
+            $result['catarr']=Category::select('category_name as label','id')->get();
         }else{
             $result['image']='';
             $result['btn_txt']='';
             $result['btn_link']='';
             $result['id']="";
+            $result['cat_id']='';
             $result['catarr']=Category::select('category_name as label','id')->get();
         }
 
@@ -72,6 +75,7 @@ class HomeBannerController extends Controller
         $model->banner_type=$request->post('ban_type');
         $model->btn_txt=$request->post('btn_txt');
         $model->btn_link=$request->post('btn_link');
+        $model->cat_id=$request->post('cat_id');
         $model->status=1;
         $model->save();
         $request->session()->flash('message',$msg);
