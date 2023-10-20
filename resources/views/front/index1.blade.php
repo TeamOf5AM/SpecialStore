@@ -9,7 +9,7 @@
   <div class="carousel-inner">
     @foreach($home_banner as $list)
     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-      <img src="{{asset('storage/media/banner/'.$list->image)}}" class="d-block w-100" alt="...">
+      <img src="{{asset('public/storage/media/banner/'.$list->image)}}" class="d-block w-100" alt="...">
     </div>
     @endforeach
   </div>
@@ -30,7 +30,7 @@
     @foreach($home_categories as $list)
     <div class="col-md-2 col-4 mb-3">
       <div class="card shadow-sm">
-        <img class="mx-auto" src="{{asset('storage/media/category/'.$list->category_image)}}" alt="" width="80%;">
+        <img class="mx-auto" src="{{asset('public/storage/media/category/'.$list->category_image)}}" alt="" width="80%;">
         <div class="card-footer px-0 text-center bg-transparent border-0">
           <small class="text-uppercase mb-0 fs-6"><a class="mclr fw-bold fs-small"
               href="{{url('category/'.$list->category_slug)}}">{{$list->category_name}}</a></small>
@@ -49,7 +49,7 @@
     @foreach($home_tranding_product[$list->id] as $productArr)
     <div>
       <div class="card px-5 p-4 px-lg-3" style="height: 48vh;">
-        <img class="mb-3 border border-dark" src="{{asset('storage/media/'.$productArr->image)}}" alt="" width="100%">
+        <img class="mb-3 border border-dark" src="{{asset('public/storage/media/'.$productArr->image)}}" alt="" width="100%">
         <a class="mclr mb-3" href="{{url('product/'.$productArr->slug)}}">
           <p class="mb-1 fs-6 fw-bolder">{{$productArr->name}}</p>
         </a>
@@ -114,7 +114,7 @@
     @foreach($home_featured_product[$list->id] as $productArr)
     <div>
       <div class="card px-5 p-4 px-lg-3" style="height: 48vh;">
-        <img class="mb-3" src="{{asset('storage/media/'.$productArr->image)}}" alt="" width="100%">
+        <img class="mb-3" src="{{asset('public/storage/media/'.$productArr->image)}}" alt="" width="100%">
         <a class="mclr mb-3" href="{{url('product/'.$productArr->slug)}}">
           <p class="mb-1 fs-6 fw-bolder">{{$productArr->name}}</p>
         </a>
@@ -264,7 +264,7 @@
     @foreach($home_discounted_product[$list->id] as $productArr)
     <div>
       <div class="card px-5 p-4 px-lg-3" style="height:48vh;">
-        <img class="mb-3" src="{{asset('storage/media/'.$productArr->image)}}" alt="" width="100%">
+        <img class="mb-3" src="{{asset('public/storage/media/'.$productArr->image)}}" alt="" width="100%">
         <a class="mclr mb-3" href="{{url('product/'.$productArr->slug)}}">
           <p class="mb-1 fs-6 fw-bolder">{{$productArr->name}}</p>
         </a>

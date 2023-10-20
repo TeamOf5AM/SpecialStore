@@ -189,7 +189,7 @@
             @foreach($home_categories as $list)
             <div class="{{ $loop->first ? 'col-md-12' : 'col-md-1' }}">
               <div class="card">
-                <img class="w-25" src="{{asset('storage/media/category/'.$list->category_image)}}" alt="">
+                <img class="w-25" src="{{asset('public/storage/media/category/'.$list->category_image)}}" alt="">
               </div>
             </div>
             @endforeach

@@ -26,7 +26,7 @@
                         @foreach($product_images[$product[0]->id] as $list)
                           <div class="p-lg-4 py-4">
                               <div class="card px-lg-3">
-                                <img class="w-100 rounded" src="{{asset('storage/media/'.$list->images)}}" alt="">
+                                <img class="w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
                               </div>
                           </div>
                           @endforeach
@@ -37,7 +37,7 @@
                         @foreach($product_images[$product[0]->id] as $list)
                           <div>
                               <div class="card px-lg-3">
-                              <img class="pb-2 w-75" src="{{asset('storage/media/'.$list->images)}}" alt="">
+                              <img class="pb-2 w-75" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
                               </div>
                           </div>
                         @endforeach
@@ -223,7 +223,7 @@
             @foreach($related_product as $productArr)
             <div style="width: 17rem;" class="pe-4">
               <div class="card border border-secondary">
-                <img class="w-100 rounded" src="{{asset('storage/media/'.$productArr->image)}}" alt="" style="height:40vh;">
+                <img class="w-100 rounded" src="{{asset('public/storage/media/'.$productArr->image)}}" alt="" style="height:40vh;">
                 <div class="card-body px-1 py-2">
                   <a class="mclr" href="{{url('product/'.$productArr->slug)}}">
                     <p class="mb-0 small text-wraping">{{$productArr->name}}</p>

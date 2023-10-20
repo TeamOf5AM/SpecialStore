@@ -32,7 +32,7 @@
     <![endif]-->
       
     <script>
-    var PRODUCT_IMAGE="{{asset('storage/media/')}}";
+    var PRODUCT_IMAGE="{{asset('public/storage/media/')}}";
     </script>
 
   </head>
@@ -265,7 +265,7 @@ $totalPrice=0;
                   $totalPrice=$totalPrice+($cartItem->qty*$cartItem->price)
                   @endphp
         <tr>
-          <td class="text-center"><img src="{{asset('storage/media/'.$cartItem->image)}}" alt="" style="width:40px;"></td>
+          <td class="text-center"><img src="{{asset('public/storage/media/'.$cartItem->image)}}" alt="" style="width:40px;"></td>
           <td class="text-center"><small class="x-small">{{$cartItem->name}}</small></td>
           <td class="text-center"><small class="x-small">1<small></td>
           <td class="text-center"><small class="x-small">Rs {{$totalPrice}}<small></td>

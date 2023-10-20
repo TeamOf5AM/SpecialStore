@@ -27,8 +27,15 @@ class HomeBannerController extends Controller
             $result['btn_txt']=$arr->btn_txt;
             $result['btn_link']=$arr->btn_link;
             $result['id']=$arr->id;
-            $catarr=Category::select('category_name as label','id')->where(['id'=>$arr->cat_id])->first(); 
-            $result['cat_id']=$catarr['id'];
+            $catarr=Category::select('category_name as label','id')->where(['id'=>$arr->cat_id])->first();
+            if($catarr != NULL)
+            {
+                $result['cat_id']=$catarr['id'];
+            }
+            else
+            {
+                $result['cat_id']='';
+            }
             $result['catarr']=Category::select('category_name as label','id')->get();
         }else{
             $result['image']='';
@@ -44,6 +51,7 @@ class HomeBannerController extends Controller
 
     public function manage_home_banner_process(Request $request)
     {
+        die($request->post('image'));
         $request->validate([
             'image'=>'required|mimes:jpeg,jpg,png,webp' 
         ]);
@@ -64,6 +72,7 @@ class HomeBannerController extends Controller
                     Storage::delete('/public/media/banner/'.$arrImage[0]->image);
                 }
             }
+
 
             $image=$request->file('image');
             $ext=$image->extension();

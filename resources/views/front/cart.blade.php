@@ -27,7 +27,7 @@
                     <div class="card bg-prdct-card p-2 text-start">
                       <div class="row">
                         <div class="{{ $loop->count = 1 ? 'col-md-2':'col-md-3'}} col-5">
-                          <img class="w-100" src="{{asset('storage/media/'.$data->image)}}" alt="">
+                          <img class="w-100" src="{{asset('public/storage/media/'.$data->image)}}" alt="">
                         </div>
                         <div class="col-lg-6 mx-auto col-7">
                           <h6 class="fw-bold small mb-0">{{$data->name}}</h6>

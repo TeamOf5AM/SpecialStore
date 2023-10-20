@@ -35,7 +35,7 @@
                             <div class="card mb-1 bg-prdct-card border border-dark p-2">
                                 <div class="row">
                                     <div class="col-6">
-                                        <img class="w-75 rounded" src="{{asset('storage/media/'.$cartItem->image)}}" alt="">
+                                        <img class="w-75 rounded" src="{{asset('public/storage/media/'.$cartItem->image)}}" alt="">
                                     </div>
                                     <div class="col-6">
                                         <h6 class="mb-0 text-wraping"><a href="#">{{$cartItem->name}}</a></h6>
@@ -102,7 +102,7 @@
                             <div class="card mb-1 bg-prdct-card border border-dark p-2">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <img class="w-75 rounded" src="{{asset('storage/media/'.$cartItem->image)}}" alt="">
+                                        <img class="w-75 rounded" src="{{asset('public/storage/media/'.$cartItem->image)}}" alt="">
                                     </div>
                                     <div class="col-md-6">
                                         <h6 class="mb-0 text-wraping"><a href="#">{{$cartItem->name}}</a></h6>

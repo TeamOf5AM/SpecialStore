@@ -62,7 +62,7 @@
                                     @enderror
 
                                     @if($category_image!='')
-                                            <a href="{{asset('storage/media/category/'.$category_image)}}" target="_blank"><img width="100px" src="{{asset('storage/media/category/'.$category_image)}}"/></a>
+                                            <a href="{{asset('public/storage/media/category/'.$category_image)}}" target="_blank"><img width="100px" src="{{asset('public/storage/media/category/'.$category_image)}}"/></a>
                                         @endif
                                 </div>
                                 <div class="form-group">

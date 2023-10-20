@@ -79,7 +79,7 @@ Back
                         </div>
                         @enderror
                         @if($image!='')
-                           <a href="{{asset('storage/media/'.$image)}}" target="_blank"><img width="100px" src="{{asset('storage/media/'.$image)}}"/></a>
+                           <a href="{{asset('public/storage/media/'.$image)}}" target="_blank"><img width="100px" src="{{asset('public/storage/media/'.$image)}}"/></a>
                         @endif
                      </div>
                      <div class="form-group">
@@ -245,7 +245,7 @@ Back
                               <input id="images" name="images[]" type="file" class="form-control" aria-required="true" aria-invalid="false" >
 
                               @if($pIArr['images']!='')
-                                 <a href="{{asset('storage/media/'.$pIArr['images'])}}" target="_blank"><img width="100px" src="{{asset('storage/media/'.$pIArr['images'])}}"/></a>
+                                 <a href="{{asset('public/storage/media/'.$pIArr['images'])}}" target="_blank"><img width="100px" src="{{asset('public/storage/media/'.$pIArr['images'])}}"/></a>
                               @endif
                            </div>
                            
@@ -331,7 +331,7 @@ Back
                               <input id="attr_image" name="attr_image[]" type="file" class="form-control" aria-required="true" aria-invalid="false" >
 
                               @if($pAArr['attr_image']!='')
-                                 <img width="100px" src="{{asset('storage/media/'.$pAArr['attr_image'])}}"/>
+                                 <img width="100px" src="{{asset('public/storage/media/'.$pAArr['attr_image'])}}"/>
                               @endif
                            </div>
                            <div class="col-md-2">

@@ -37,7 +37,7 @@
                             <td>{{$list->btn_txt}}</td>
                             <td>{{$list->btn_link}}</td>
                             <td>
-                            <img width="100px" src="{{asset('storage/media/banner/'.$list->image)}}"/>
+                            <img width="100px" src="{{asset('public/storage/media/banner/'.$list->image)}}"/>
                             </td>
                             <td>
                                 <a href="{{url('admin/home_banner/manage_home_banner/')}}/{{$list->id}}"><button type="button" class="btn btn-success">Edit</button></a>
@@ -88,7 +88,7 @@
                             <td>{{$list->btn_txt}}</td>
                             <td>{{$list->btn_link}}</td>
                             <td>
-                            <img width="100px" src="{{asset('storage/media/banner/'.$list->image)}}"/>
+                            <img width="100px" src="{{asset('public/storage/media/banner/'.$list->image)}}"/>
                             </td>
                             <td>
                                 <a href="{{url('admin/home_banner/manage_home_banner/')}}/{{$list->id}}"><button type="button" class="btn btn-success">Edit</button></a>
@@ -138,7 +138,7 @@
                             <td>{{$list->btn_txt}}</td>
                             <td>{{$list->btn_link}}</td>
                             <td>
-                            <img width="100px" src="{{asset('storage/media/banner/'.$list->image)}}"/>
+                            <img width="100px" src="{{asset('public/storage/media/banner/'.$list->image)}}"/>
                             </td>
                             <td>
                                 <a href="{{url('admin/home_banner/manage_home_banner/')}}/{{$list->id}}"><button type="button" class="btn btn-success">Edit</button></a>

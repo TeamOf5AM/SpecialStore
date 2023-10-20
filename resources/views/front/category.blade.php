@@ -104,7 +104,7 @@
                   @foreach($product as $productArr)
                  <div class="col-lg-3 col-md-4 col-6 mb-3">
                    <div class="card border border-secondary p-2 bg-prdct-card">
-                     <img class="w-100 rounded" src="{{asset('storage/media/'.$productArr->image)}}" alt="">
+                     <img class="w-100 rounded" src="{{asset('public/storage/media/'.$productArr->image)}}" alt="">
                      <div class="card-body px-1 py-2">
                        <p class="mb-0 small text-wraping"><a href="{{url('product/'.$productArr->slug)}}">{{$productArr->name}}</a></p>
                        <p class="mb-0 small text-danger">Rs {{$product_attr[$productArr->id][0]->price}}

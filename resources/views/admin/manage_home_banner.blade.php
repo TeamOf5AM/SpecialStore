@@ -56,7 +56,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="image" class="control-label mb-1"> Image</label>
-                                    <input id="image" name="image" type="file" class="form-control" aria-required="true" aria-invalid="false">
+                                    <input id="image" name="image" type="file" value="{{$list->image_name}}" class="form-control" aria-required="true" aria-invalid="false">
+                                    <!-- <input type="text" name="image_name" id="" value="{{$list->image_name}}"> -->
                                     @error('image')
                                     <div class="alert alert-danger" role="alert">
                                     {{$message}}		
@@ -64,7 +65,7 @@
                                     @enderror
 
                                     @if($image!='')
-                                            <a href="{{asset('storage/media/banner/'.$image)}}" target="_blank"><img width="100px" src="{{asset('storage/media/banner/'.$image)}}"/></a>
+                                            <a href="{{asset('public/storage/media/banner/'.$image)}}" target="_blank"><img width="100px" src="{{asset('public/storage/media/banner/'.$image)}}"/></a>
                                         @endif
                                 </div>
                                 

@@ -66,7 +66,7 @@
                 @endphp
                 <tr>
                   <td class="fw-normal">{{$list->pname}}</td>
-                  <td><img class="mx-auto" src='{{asset('storage/media/'.$list->attr_image)}}'/ width="70px;"></td>
+                  <td><img class="mx-auto" src='{{asset('public/storage/media/'.$list->attr_image)}}'/ width="70px;"></td>
                   <td>Rs {{$list->price}}</td>
                   <td>{{$list->qty}}</td>
                   <td>Rs {{$list->price*$list->qty}}</td>
