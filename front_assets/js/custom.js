@@ -444,7 +444,6 @@ function addQty(pid,size,color,attr_id,price){
     $n.val(Number($n.val())+1 );
 
 
-    
     $('#color_id').val(color);
     $('#size_id').val(size);
     var qty=$('#qty'+attr_id).val();
