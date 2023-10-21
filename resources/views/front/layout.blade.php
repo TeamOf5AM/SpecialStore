@@ -62,7 +62,7 @@
     <script src="{{asset('front_assets/js/custom.js')}}"></script> 
     <script src="{{asset('front_assets/assests/js/script.js')}}"></script>
 
-    <script>
+    <!-- <script>
       var buttonPlus  = $(".qty-btn-plus");
       var buttonMinus = $(".qty-btn-minus");
 
@@ -70,6 +70,9 @@
         var $n = $(this)
         .parent(".qty-container")
         .find(".input-qty");
+        $('#qty').val(Number($n.val())+1);
+        $('.aa-cartbox-items').html(Number($n.val())+1);
+        // $('#total_price_'+attr_id).html('Rs '+qty*price);
         $n.val(Number($n.val())+1 );
       });
 
@@ -82,7 +85,7 @@
           $n.val(amount-1);
         }
       });
-    </script>
+    </script> -->
 
   </body>
 </html>

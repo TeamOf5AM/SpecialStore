@@ -22,6 +22,7 @@
             @if(isset($list[0]))
               <div class="card shadow-lg mb-5 p-3 text-center">
                 <div class="row">
+                @php $Subtotal="0" @endphp
                   @foreach($list as $data)
                   <div class="{{ $loop->count = 1 ? 'col-md-12':'col-md-6'}} mb-3" id="cart_box{{$data->attr_id}}">
                     <div class="card bg-prdct-card p-2 text-start">
@@ -45,9 +46,9 @@
                               </span>
                               @endif
                               <div class="qty-container my-2">
-                                <button class="qty-btn-minus btn-danger btn-cornered mr-1" type="button"><i class="fa fa-arrow-left"></i></button>
-                                <input type="text" id="qty{{$data->attr_id}}" value="{{$data->qty}}" name="qty" value="0" class="input-qty input-cornered" onchange="updateQty('{{$data->pid}}','{{$data->size}}','{{$data->color}}','{{$data->attr_id}}','{{$data->price}}')" />
-                                  <button class="qty-btn-plus btn-danger btn-cornered ml-1" type="button"><i class="fa fa-arrow-right"></i></button>
+                                <button class="qty-btn-minus btn-danger btn-cornered mr-1" type="button" onclick="subQty('{{$data->pid}}','{{$data->size}}','{{$data->color}}','{{$data->attr_id}}','{{$data->price}}');"><i class="fa fa-arrow-left"></i></button>
+                                <input type="text" id="qty{{$data->attr_id}}" value="{{$data->qty}}" name="qty" value="0" class="input-qty input-cornered" />
+                                  <button class="qty-btn-plus btn-danger btn-cornered ml-1" onclick="addQty('{{$data->pid}}','{{$data->size}}','{{$data->color}}','{{$data->attr_id}}','{{$data->price}}');" type="button"><i class="fa fa-arrow-right"></i></button>
                               </div>
                               <p class="small fw-bold mb-0" id="total_price_{{$data->attr_id}}">Rs {{$data->price*$data->qty}}</p>
                         </div>
@@ -55,6 +56,9 @@
                     </div>
                   </div>
                     @endforeach
+                    @php
+                    $Subtotal += $data->price*$data->qty;
+                    @endphp
                 </div>
               </div>
             @else
@@ -67,10 +71,10 @@
             <div class="card shadow-lg position-sticky bottom-0 p-3 text-lg-center">
                 <div class="row">
                     <div class="col-md-4 col-6 mb-4 mt-3">
-                        <h6 class="mb-0 fw-bold">Total Items : <span class="text-danger">10</span></h6>
+                        <h6 class="mb-0 fw-bold">Total Items : <span class="text-danger aa-cartbox-items">{{$data->qty}}</span></h6>
                     </div>
                     <div class="col-md-4 col-6 mb-4 mt-3">
-                        <h6 class="mb-0 fw-bold">Total Amount : <span class="text-danger">2039</span></h6>
+                        <h6 class="mb-0 fw-bold">Total Amount : <span class="text-danger aa-cartbox-total">Rs {{$Subtotal ?? ''}}</span></h6>
                     </div>
                     <div class="col-md-4">
                         <a href="{{url('checkout')}}" class="btn btn-danger rounded-0 w-100 py-2">Checkout</a>

@@ -372,7 +372,7 @@ function showColor(size){
       $('#product_id').val(id);
       $('#pqty').val($('#qty').val());
       $.ajax({
-        url:'/add_to_cart',
+        url:'add_to_cart',
         data:$('#frmAddToCart').serialize(),
         type:'post',
         success:function(result){
@@ -428,6 +428,43 @@ function showColor(size){
 
 
 function updateQty(pid,size,color,attr_id,price){
+    $('#color_id').val(color);
+    $('#size_id').val(size);
+    var qty=$('#qty'+attr_id).val();
+    $('#qty').val(qty)
+    add_to_cart(pid,size,color);
+    $('#total_price_'+attr_id).html('Rs '+qty*price);
+  }
+
+function addQty(pid,size,color,attr_id,price){
+    var $n = $(".input-qty")
+    $('#qty').val(Number($n.val())+1);
+    $('.aa-cartbox-items').html(Number($n.val())+1);
+    // $('#total_price_'+attr_id).html('Rs '+qty*price);
+    $n.val(Number($n.val())+1 );
+
+
+    $('#color_id').val(color);
+    $('#size_id').val(size);
+    var qty=$('#qty'+attr_id).val();
+    $('#qty').val(qty)
+    $('#total_price_'+attr_id).html('Rs '+qty*price);
+    $('.aa-cartbox-total').html('Rs '+qty*price);
+    add_to_cart(pid,size,color);
+  }
+
+
+function subQty(pid,size,color,attr_id,price){
+
+    var $n = $(this)
+    .parent(".qty-container")
+    .find(".input-qty");
+    var amount = Number($n.val());
+    if (amount > 0) {
+      $n.val(amount-1);
+    }
+
+
     $('#color_id').val(color);
     $('#size_id').val(size);
     var qty=$('#qty'+attr_id).val();
