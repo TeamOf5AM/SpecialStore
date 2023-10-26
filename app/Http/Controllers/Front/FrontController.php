@@ -978,7 +978,7 @@ class FrontController extends Controller
                 //     ->where(['id'=>$order_id])
                 //     ->update(['txn_id'=>$txn_id]);
                 //     $payment_url=$response->payment_request->longurl;
-                $payment_url = 'https://ssuat.specialstore.in/gateway/pay/'.$order_id;
+                $payment_url = 'https://specialstore.in/gateway/pay/'.$order_id;
                 }else{
                     $msg="";
                     foreach($response->message as $key=>$val){
