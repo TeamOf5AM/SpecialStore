@@ -11,7 +11,7 @@
                 @foreach($home_categories as $list)
                 <div class="col-md-2 col-4 {{ $loop->last ? '':'border-end border-warning'}}">
                   <div class="card text-center align-items-center">
-                    <img class="pb-2" src="{{asset('public/storage/media/category/'.$list->category_image)}}" width="25" alt="">
+                    <img class="p-1 rounded rounded-lg" src="{{asset('public/storage/media/category/'.$list->category_image)}}" width="75" alt="">
                     <p class="mb-0"><a href="{{url('category/'.$list->category_slug)}}">{{$list->category_name}}</a></p>
                   </div>
                 </div>
