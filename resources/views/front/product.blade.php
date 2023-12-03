@@ -18,30 +18,36 @@
       <!-- === Product Dettailed Section Starts === -->
       <section>
         <div class="container-fluid px-lg-5 px-md-5 px-4 mb-5">
-            <div class="row">
-                <div class="col-md-5 mb-3">
-                    <div class="position-sticky top-0">
-                      <div class="product-main h-27rem">
-                        @if(isset($product_images[$product[0]->id][0]))
-                        @foreach($product_images[$product[0]->id] as $list)
-                          <div class="p-lg-4 py-4">
-                              <div class="card px-lg-3">
-                                <img class="w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <div class="position-sticky top-0">
+                <div class="row">
+                  <div class="col-2 my-auto">
+                    <div class="product-sub">
+                      @if(isset($product_images[$product[0]->id][0]))
+                      @foreach($product_images[$product[0]->id] as $list)
+                        <div>
+                            <div class="card">
+                            <img class="mb-2 w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
+                            </div>
+                        </div>
+                      @endforeach
+                      @endif
+                    </div>
+                        </div>
+                        <div class="col-10">
+                          <div class="product-main h-27rem">
+                            @if(isset($product_images[$product[0]->id][0]))
+                            @foreach($product_images[$product[0]->id] as $list)
+                              <div class="py-4">
+                                  <div class="card px-lg-3">
+                                    <img class="w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
+                                  </div>
                               </div>
+                              @endforeach
+                              @endif
                           </div>
-                          @endforeach
-                          @endif
-                      </div>
-                      <div class="product-sub">
-                        @if(isset($product_images[$product[0]->id][0]))
-                        @foreach($product_images[$product[0]->id] as $list)
-                          <div>
-                              <div class="card px-lg-3">
-                              <img class="pb-2 w-75" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
-                              </div>
-                          </div>
-                        @endforeach
-                        @endif
+                        </div>
                       </div>
                     </div>
                 </div>

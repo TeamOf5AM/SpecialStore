@@ -15,11 +15,13 @@ $('.product-main').slick({
     asNavFor: '.product-sub'
   });
   $('.product-sub').slick({
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     asNavFor: '.product-main',
+    vertical: true,
+    verticalSwiping: true,
     dots: true,
-    centerMode: true,
+    // centerMode: true,
     focusOnSelect: true
   });
 

@@ -133,9 +133,9 @@ hr{
     text-overflow: ellipsis;
     max-width: 25ch;
   }
-  .h-27rem{
+  /* .h-27rem{
     height: 27.5rem;
-  }
+  } */
 
   .min-h-30{
     overflow-y: scroll;
@@ -279,11 +279,15 @@ a:hover{
   border-radius: 20% !important;
 }
 
+.slick-list{
+  height: auto !important;
+}
+
 @media only screen and (max-width: 600px) {
   .w-lg-prd_crd{
     width: 10rem;
   }
-  .h-27rem{
+  /* .h-27rem{
     height: 25rem;
-  }
+  } */
 }
