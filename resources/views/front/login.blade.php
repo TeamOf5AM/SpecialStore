@@ -75,7 +75,7 @@ $is_remember="";
                 <section id="aa-myaccount">
                   <div class="col-12 mx-auto">
                     <div class="card px-5 p-1">
-                      <h4 class="fw-bold text-center text-uppercase mb-1">Register To DKS Solar</h4>
+                      <h4 class="fw-bold text-center text-uppercase mb-1">Register To Special Store</h4>
                       <p class="text-center smaller text-secondary mb-5">Login With Your Email Id And Password And Shop</p>
                       <form action="" class="aa-login-form" id="frmRegistration">
                         <div class="row mb-3">
