@@ -1,6 +1,9 @@
 <div class="pe-4 w-lg-prd_crd">
     <div class="card border border-secondary p-2 bg-prdct-card">
-    <img class="w-100 rounded" src="{{asset('public/storage/media/'.$productArr->image)}}" alt="">
+        <div class="card-body prd_h" style="background:url({{asset('public/storage/media/'.$productArr->image)}});background-size:cover">
+            
+        </div>
+    <!-- <img class="w-100 rounded" src="{{asset('public/storage/media/'.$productArr->image)}}" alt=""> -->
     <div class="card-body px-1 py-2">
         <a class="mclr" href="{{url('product/'.$productArr->slug)}}">
         <p class="mb-0 small text-wraping">{{$productArr->name}}</p>

@@ -133,9 +133,9 @@ hr{
     text-overflow: ellipsis;
     max-width: 25ch;
   }
-  /* .h-27rem{
-    height: 27.5rem;
-  } */
+  .prd_h{
+    height: 250px;
+  }
 
   .min-h-30{
     overflow-y: scroll;
@@ -289,4 +289,7 @@ a:hover{
   /* .h-27rem{
     height: 25rem;
   } */
+  .prd_h{
+    height: 130px;
+  }
 }
