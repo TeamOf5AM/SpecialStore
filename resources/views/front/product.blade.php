@@ -7,7 +7,7 @@
         <div class="container-fluid px-lg-5 px-md-5 px-4">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item small"><a class="mclr" href="#">Home</a></li>
+                <li class="breadcrumb-item small"><a class="mclr" href="/">Home</a></li>
                 <li class="breadcrumb-item active small" aria-current="page">{{$product[0]->name}}</li>
             </ol>
             </nav>
@@ -18,30 +18,36 @@
       <!-- === Product Dettailed Section Starts === -->
       <section>
         <div class="container-fluid px-lg-5 px-md-5 px-4 mb-5">
-            <div class="row">
-                <div class="col-md-5 mb-3">
-                    <div class="position-sticky top-0">
-                      <div class="product-main h-27rem">
-                        @if(isset($product_images[$product[0]->id][0]))
-                        @foreach($product_images[$product[0]->id] as $list)
-                          <div class="p-lg-4 py-4">
-                              <div class="card px-lg-3">
-                                <img class="w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <div class="position-sticky top-0">
+                <div class="row">
+                  <div class="col-2 my-auto">
+                    <div class="product-sub">
+                      @if(isset($product_images[$product[0]->id][0]))
+                      @foreach($product_images[$product[0]->id] as $list)
+                        <div>
+                            <div class="card">
+                            <img class="mb-2 w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
+                            </div>
+                        </div>
+                      @endforeach
+                      @endif
+                    </div>
+                        </div>
+                        <div class="col-10">
+                          <div class="product-main h-27rem">
+                            @if(isset($product_images[$product[0]->id][0]))
+                            @foreach($product_images[$product[0]->id] as $list)
+                              <div class="py-4">
+                                  <div class="card px-lg-3">
+                                    <img class="w-100 rounded" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
+                                  </div>
                               </div>
+                              @endforeach
+                              @endif
                           </div>
-                          @endforeach
-                          @endif
-                      </div>
-                      <div class="product-sub">
-                        @if(isset($product_images[$product[0]->id][0]))
-                        @foreach($product_images[$product[0]->id] as $list)
-                          <div>
-                              <div class="card px-lg-3">
-                              <img class="pb-2 w-75" src="{{asset('public/storage/media/'.$list->images)}}" alt="">
-                              </div>
-                          </div>
-                        @endforeach
-                        @endif
+                        </div>
                       </div>
                     </div>
                 </div>
